@@ -1,0 +1,2 @@
+This is /etc/server-info.txt.  
+Edit this file to include reminders and important information.
