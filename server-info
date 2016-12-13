@@ -15,8 +15,8 @@ else
 fi
 
 CLIENT_ADDRESS=$(head -n 1 /tmp/ssh_client_address)
-cp -f /etc/server-info /tmp/server-info
-sed -i.bak 's/'SSH_CLIENT_HERE'/'$CLIENT_ADDRESS'/g' /tmp/server-info
+cp -f /etc/server-info.txt /tmp/server-info.txt
+sed -i.bak 's/'SSH_CLIENT_HERE'/'$CLIENT_ADDRESS'/g' /tmp/server-info.txt
 
 PROCCOUNT=`ps -Afl | wc -l`
 PROCCOUNT=`expr $PROCCOUNT - 5`
@@ -28,7 +28,7 @@ else
 ENDSESSION="Unlimited"
 PRIVLAGED="Regular User"
 fi
-echo -e "\033[1;32m`hostname | figlet -f /usr/share/figlet/small.flf`"
+echo -e "\033[1;32m`hostname | figlet -f /usr/share/figlet/big.flf`"
 echo -e "\033[0;35m+++++++++++++++++: \033[0;34mSystem Data\033[0;35m :+++++++++++++++++++
 \033[0;35m+   \033[0;34mHostname \033[0;35m= \033[1;32m`hostname`
 \033[0;35m+         \033[0;34mOS \033[0;35m= \033[1;32m`cat /etc/redhat-release`
@@ -45,8 +45,8 @@ echo -e "\033[0;35m++++++++++++++++++: \033[0;34mDisk Data\033[0;35m :++++++++++
 \033[1;32m`df -h / | grep '%'`"
 echo -e "\033[0;35m+++++++++++++: \033[0;34mHelpful Information\033[0;35m :+++++++++++++++
 \033[0;35m+ \033[0;34mThis Script \033[0;35m= \033[1;32m/usr/local/bin/server-info
-\033[0;35m+ \033[0;34mMaintenance Info \033[0;35m= \033[1;32m/etc/server-info
+\033[0;35m+ \033[0;34mMaintenance Info \033[0;35m= \033[1;32m/etc/server-info.txt
 \033[0;35m+ \033[0;34mFor documentation see GitHub \033[0;35m= \033[1;32mSummittDweller/docs"
 echo -e "\033[0;35m+++++++++++: \033[0;31mMaintenance Information\033[0;35m :+++++++++++++
-\033[0;35m+\033[1;32m `cat /tmp/server-info`
+\033[0;35m+\033[1;32m `cat /tmp/server-info.txt`
 \033[0;35m+++++++++++++++++++++++++++++++++++++++++++++++++++\033[0;30m"
