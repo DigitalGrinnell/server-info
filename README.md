@@ -9,7 +9,7 @@ Park a copy of server-info in /usr/local/bin and give it rwxr-xr-x (755) file pr
 curl -o /usr/local/bin/server-info https://raw.githubusercontent.com/DigitalGrinnell/server-info/master/server-info
 chmod 755 /usr/local/bin/server-info
 if [ -f /etc/server-info.txt ]; then
-  echo "/etc/server-info.txt already exists and should NOT be replaced!"
+  echo "/etc/server-info.txt already exists and should NOT be replaced."
 else
   curl -o /etc/server-info.txt https://raw.githubusercontent.com/DigitalGrinnell/server-info/master/server-info.txt
   chmod 766 /etc/server-info.txt
