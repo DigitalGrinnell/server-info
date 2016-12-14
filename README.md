@@ -2,6 +2,10 @@
 A simple bash script to aid with server maintenance.
 
 This script reqiures 'figlet'.
+```bash
+apt-get install figlet
+yum --nogpgcheck figlet
+```
 
 Park a copy of server-info in /usr/local/bin and give it rwxr-xr-x (755) file protection like so... as root:
 
