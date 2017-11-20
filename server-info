@@ -1,6 +1,6 @@
 #!/bin/bash
 # This is server-into, formerly 'dynmotd'.  
-# This script reqiures 'figlet'.
+# This script reqiures 'figlet' and 'mdv'
 #
 # Park this script in /usr/local/bin and give it rwxr-xr-x (755) file protection.
 # Create a symbolic link 'ln -s /usr/local/bin/server-info server' in /usr/local/bin if you like.
@@ -14,8 +14,8 @@ else
   echo $SSH_CLIENT | awk {'print $1'} > /tmp/ssh_client_address
 fi
 CLIENT_ADDRESS=$(head -n 1 /tmp/ssh_client_address)
-cp -f /etc/server-info.txt /tmp/server-info.txt
-sed -i.bak 's/'SSH_CLIENT_HERE'/'$CLIENT_ADDRESS'/g' /tmp/server-info.txt
+cp -f /etc/server-info.md /tmp/server-info.md
+sed -i.bak 's/'SSH_CLIENT_HERE'/'$CLIENT_ADDRESS'/g' /tmp/server-info.md
 
 # Get some session/user info.
 PROCCOUNT=`ps -Afl | wc -l`
@@ -56,8 +56,8 @@ echo -e "\033[0;35m++++++++++++++++++: \033[0;34mDisk Data\033[0;35m :++++++++++
 \033[1;32m`df -h / | grep '%'`"
 echo -e "\033[0;35m+++++++++++++: \033[0;34mHelpful Information\033[0;35m :+++++++++++++++
 \033[0;35m+ \033[0;34mThis Script \033[0;35m= \033[1;32m/usr/local/bin/server-info
-\033[0;35m+ \033[0;34mMaintenance Info \033[0;35m= \033[1;32m/etc/server-info.txt
-\033[0;35m+ \033[0;34mFor documentation see GitHub \033[0;35m= \033[1;32mSummittDweller/docs"
+\033[0;35m+ \033[0;34mMaintenance Info \033[0;35m= \033[1;32m/etc/server-info.md
+\033[0;35m+ \033[0;34mFor documentation see GitHub \033[0;35m= \033[1;32mDigitalGrinnell/docs"
 echo -e "\033[0;35m+++++++++++: \033[0;31mMaintenance Information\033[0;35m :+++++++++++++
-\033[0;35m+\033[1;32m `cat /tmp/server-info.txt`
+\033[0;35m+\033[1;32m `mdv /tmp/server-info.md`
 \033[0;35m+++++++++++++++++++++++++++++++++++++++++++++++++++\033[0;30m"
