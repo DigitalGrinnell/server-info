@@ -1,9 +1,10 @@
 # server-info
 A simple bash script to aid with server maintenance.  Modified: Thursday, September 6, 2018 12:57 PM
 
+## It is suggested that you perform these steps as `root`!
+
 This script reqiures 'figlet' and 'mdv' (a terminal markdown viewer).
-```
-bash
+```bash
 sudo apt-get install figlet   <-- Ubuntu
 sudo yum install --nogpgcheck figlet   <-- CentOS
 pip install mdv  <-- Assuming Python and Pip are available
@@ -11,8 +12,7 @@ pip install mdv  <-- Assuming Python and Pip are available
 
 Park a copy of server-info in /usr/local/bin and give it rwxr-xr-x (755) file protection like so... as root:
 
-```
-bash
+```bash
 curl -o /usr/local/bin/server-info https://raw.githubusercontent.com/DigitalGrinnell/server-info/master/server-info
 chmod 755 /usr/local/bin/server-info
 if [ -f /etc/server-info.md ]; then
